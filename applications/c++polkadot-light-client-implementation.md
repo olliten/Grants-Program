@@ -196,7 +196,7 @@ Within Polkadot, XCM allows for interoperability between chains. Bridges from ou
 
 #### Solid and Consistent Growth
 Apart from some common good Parachains supported by stakeholders voting, other Paraobjects must secure slots on Polkadot to use it, which requires locking up DOTs, the Polkadot native token. The value of DOTs is therefore highly driven by this demand.
-By our estimation, Polkadot is expected to support 50-200 Parachains in the first two years of onboarding parachains (as of Nov 2021). This number is likely higher by now.
+By our estimation, Polkadot is expected to support 50-100 Parachains in the first two years of onboarding parachains (as of Nov 2021).
 
 #### EVM Compatibility
 Several projects have EVM compatible pallets; therefore they can use the same tooling for development and wallet management. The pallets may use their EVM+ by Acala Network or forked version to Frontier by Moonbeam Network and Astra Network.
