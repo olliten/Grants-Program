@@ -18,29 +18,29 @@ This project aims to create a new light client implementation for Substrate, wri
 
 Reasons for having another light client:
 
-- Improve the light client specifications. As for now, there is only one [smoldot](https://github.com/paritytech/smoldot)-based light client implementation, which may lead to certain things and workflows being poorly documented, e.g., the light client API
+- Improve the light client specifications. As for now, there is only one [smoldot](https://github.com/paritytech/smoldot)-based light client implementation, which can lead to certain things and workflows being poorly documented, e.g., the light client API
 
 Reasons for writing it in C++:
-- Involve the C++ community in Polkadot development. As for now, there is only full node C++ implementation ([Kagome](https://github.com/soramitsu/kagome))
-- Add more integration options for mobile and desktop platforms. C++ light client library can be reused for creating mobile and desktop wallets. C++ code of the library will also be compiled to the WASM module, allowing launching light client in a browser
+- Involve the C++ community in Polkadot development. As for now, there is only a full node C++ implementation ([Kagome](https://github.com/soramitsu/kagome))
+- Add more integration options for mobile and desktop platforms. C++ light client library may be reused for creating mobile and desktop wallets. C++ code of the library will also be compiled to a WASM module, allowing the launch of a light client in a browser
 
 ### Project Details
 
 [![mermaid.png](https://i.postimg.cc/PrgJtfkN/mermaid.png)](https://postimg.cc/56mbgVyM)
 
-Implementation will use a single boost::asio-loop based approach without extra threads. All platform-specific code will be abstracted out. That will allow us to compile the same C++ code  to native binaries and a WASM module.
+Implementation will use a single boost::asio-loop based approach without extra threads. All platform-specific code will be abstracted out. That will allow us to compile the same C++ code to both native binaries and a WASM module.
 - Emscripten will be used to compile C++ code into the WASM module.
 - [scale-code-cpp](https://github.com/soramitsu/scale-codec-cpp) will be used for SCALE encoding/decoding. 
 - [cpp-libp2p](https://github.com/libp2p/cpp-libp2p) will be used as libp2p implementation. We will extend these libraries to support building with the Conan package manager. Also, we will add support for building with Emscripten and WebSocket clients.
 
-To support the light client functionality, we will implement the support of the following protocols:
+To support the light client functionality, we will implement support of the following protocols:
 
 - /dot/sync/warp
 - /dot/block-announces/1
 - /dot/sync/1
 - /dot/light/2
 
-We will use hash_map with serialization/deserialization to hold the blockchain state. In addition, we will use OpenSSL for cryptography functions (e.g., Blake2) and port the needed algorithms not included in openssl (e.g., Schnorr signatures).
+We will use hash_map with serialization/deserialization to hold the blockchain state. In addition, we will use OpenSSL for cryptography functions (e.g., Blake2) and port the required algorithms not included in OpenSSL (e.g., Schnorr signatures).
 
 #### Requirements
 
@@ -51,11 +51,12 @@ _High-Level Requirements_
 - The client MUST be compatible with any full nodes of any Substrate chain that are [spec](https://spec.polkadot.network/)-conformant.
 
 _User Experience_
+- The client MUST be a command-line application with the support of Linux target. The client MUST be implemented as cross-platform and SHOULD compile against Mac OS and Windows platforms. But full Windows and Mac OS support is out of the scope and can be added within further development.
 - The client library MUST be architected to minimize the coupling of functionality and the user interface
-  - The client MUST be a command-line application with the support of Linux target. The client MUST be implemented as cross-platform and SHOULD compile against Mac OS and Windows platforms. But full Windows and Mac OS support is out of the scope and can be added within further development.
-  - The client library MUST be usable on popular mobile platforms (iOS, Android)
-  - The client library MUST be usable in browsers as a WebAssembly module, with a JS wrapper (hereafter \_WASM Module\_).
-  - The client library MUST support the Linux target. It SHOULD be implemented as cross-platform, but full support of other platforms (e.g., Windows, Mac OS, Android) is out of the scope.
+  - The client library MUST support Linux and WebAssembly targets. It MUST be usable in browsers with a JS wrapper(hereafter _WASM module_).
+  - The client library SHOULD be implemented as cross-platform but full support of other platforms(e.g. Windows, Mac OS, Android) is out of the scope.
+
+
 
 - The client MUST be sufficiently documented
   - The client MUST contain standalone documentation for users
@@ -188,7 +189,7 @@ We will also promote the light client on our social media and other marketing ch
 
 ### Why Polkadot Network?
 
-Equilibrium believes the Polkadot (and by proxy Kusama and Substrate) is exceptional for the following reasons:
+Equilibrium believes the Polkadot (and by proxy, Kusama and Substrate) is exceptional for the following reasons:
 
 #### Interoperability
 The benefit of using Polkadot for connection is for shared security and interoperability between other Paraobjects or blockchains with XCM, a format for messages that must be passed through (from one Parachain) the Polkadot Relay Chain to another Parachain, as opposed to chains to chains directly. The shared security model and cross Parachains / Relay Chain communications are coupled.
