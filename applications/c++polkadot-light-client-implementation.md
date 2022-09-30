@@ -71,7 +71,7 @@ _Functionality_
 - The client MUST be able to subscribe/unsubscribe to/from parachains.
 - The client MUST be able to send a new transaction.
 - The client MUST be able subscribe a new transaction's updates.
-- The client MUST support the following minimum subset of [RPC methods](https://paritytech.github.io/json-rpc-interface-spec/): `rpc_methods`, `chainHead_unstable_follow`, `chainHead_unstable_unfollow`, `chainHead_unstable_unpin`, `chainHead_unstable_storage`, `chainHead_unstable_call` and `chainHead_unstable_stopCall`.
+- The client MUST support the following minimum subset of [RPC methods](https://paritytech.github.io/json-rpc-interface-spec/): `rpc_methods`, `chainHead_unstable_follow`, `chainHead_unstable_unfollow`, `chainHead_unstable_unpin`, `chainHead_unstable_storage`, `chainHead_unstable_call`, `chainHead_unstable_stopCall`, `transaction_unstable_submitAndWatch` and `transaction_unstable_unwatch`.
 
 [^2]: This could be discussed in future grant proposals.
 
@@ -79,7 +79,7 @@ _Functionality_
 
 #### About Equilibrium
 
-Equilibrium is a software consultancy and venture studio with a mission to further privacy and decentralization. Our clients include StarkWare, ZCash, Aleo, Protocol Labs, The Ethereum Foundation, Polygon, and quite a few more. Our expertise is deeply technical, and we also employ economists and expert cryptographers to deliver results beyond the bounds of software development.	
+Equilibrium is a software consultancy and venture studio with a mission to further privacy and decentralization. Our clients include StarkWare, ZCash, Aleo, Protocol Labs, The Ethereum Foundation, Polygon, and quite a few more. Our expertise is deeply technical, and we also employ economists and expert cryptographers to deliver results beyond the bounds of software development.
 
 Our recent work includes:
 - [Pathfinder](https://github.com/eqlabs/pathfinder) full node for Starknet
@@ -129,7 +129,7 @@ The actual implementation will start conditional to the acceptance of this propo
 | 0d.    | Docker                                        | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone.                                                                                                       |
 | 1      | scale-code-cpp support for Conan              | Add support of Conan package manager to [scale-code-cpp](https://github.com/soramitsu/scale-codec-cpp)                                                                                                              |
 | 2      | cpp-libp2p support for Conan                  | Add support of Conan package manager to [cpp-libp2p](https://github.com/libp2p/cpp-libp2p)                                                                                                                          |
-| 3      | Transaction management                        | Create a light client application with transaction management functionality.                                                                                                                                        |
+| 3      | Transaction management                        | Create a light client application with transaction management functionality(`transaction_unstable_submitAndWatch` and `transaction_unstable_unwatch` JSON RPC methods)                                                                                                                                       |
 | 4      | Chain connection and event processing support | Add support of chainHead\_unstable\_follow, chainHead\_unstable\_unfollow and chainHead\_unstable\_unpin JSON RPC methods                                                                                           |
 
 
@@ -145,7 +145,7 @@ The actual implementation will start conditional to the acceptance of this propo
 | 0b.    | Documentation        | We will provide both inline documentation of the code and a basic tutorial that explains how a user can use C++ library in a simple C++ application that connects to chain and can process requests. |
 | 0c.    | Testing Guide        | Core functions will be fully covered by unit tests to ensure functionality and robustness. In the guide, we will describe how to run these tests.                                                    |
 | 0d.    | Docker               | We will provide a Dockerfile(s) that can be used to test all the functionality delivered with this milestone.                                                                                        |
-| 1      | C++ library artifact | Prepare separate C++ library artifact (include + methods)                                                                                                                                            |
+| 1      | C++ library artifact | Prepare separate C++ library artifact (separate C++ build and installation targets along with documentation, tests and examples)                                                                                                                                            |
 
 ### Milestone 3 — JS light client library
 
