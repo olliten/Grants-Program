@@ -73,7 +73,6 @@ _Functionality_
 - The client MUST be able to send a new transaction.
 - The client MUST be able to subscribe to a new transaction's updates.
 - The client MUST support the following minimum subset of [RPC methods](https://paritytech.github.io/json-rpc-interface-spec/): `rpc_methods`, `chainHead_unstable_follow`, `chainHead_unstable_unfollow`, `chainHead_unstable_unpin`, `chainHead_unstable_storage`, `chainHead_unstable_call`, `chainHead_unstable_stopCall`, `transaction_unstable_submitAndWatch` and `transaction_unstable_unwatch`.
-e6cc41... Add more details about transactions and library artifacts
 
 [^2]: This could be discussed in future grant proposals.
 
